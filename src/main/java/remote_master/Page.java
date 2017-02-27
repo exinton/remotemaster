@@ -7,6 +7,7 @@ public class Page {
 
 	String pageName;
 	Map<String,Object[]> map;
+	private boolean notLeaf;
 	public Page(String name){
 		pageName=name;
 		map = new HashMap<String,Object[]>();
@@ -23,6 +24,14 @@ public class Page {
 		return tmp;
 	}
 	
+	public boolean isNotLeaf() {
+		return notLeaf;
+	}
+
+	public void setNotLeaf(boolean notLeaf) {
+		this.notLeaf = notLeaf;
+	}
+
 	public Page addPage(Page page,String button){	
 		if(!map.containsKey(page.pageName)){
 			map.put(page.pageName,new Object[]{button,page});			
@@ -40,4 +49,6 @@ public class Page {
 		}
 		return "";		
 	}
+	
+
 }

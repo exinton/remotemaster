@@ -10,9 +10,11 @@ import java.util.Set;
 
 public class RemotePlayMode {
 	
+	Page currentPage;
 	Page root;
 	public RemotePlayMode(Page page){
 		this.root=page;
+		currentPage=root;
 	}
 	
 	public RemotePlayMode(){
@@ -32,9 +34,7 @@ public class RemotePlayMode {
 		Page SAP = Captioning_track.addPage("SAP","down");
 		Page Advanced_picture_settings = SAP.addPage("Advanced_picture_settings","down");
 		Advanced_picture_settings.addPage(TV_Brightness, "down");
-		
-		
-		
+		Advanced_picture_settings.setNotLeaf(true);		
 		return TV_Brightness;
 	}
 	
@@ -50,6 +50,7 @@ public class RemotePlayMode {
 		else
 			return null;
 	}
+		
 	
 	public boolean searchHelper(Page curr,String button,List<String> list,Set<Page> visited) {
 		if(visited.contains(curr))
@@ -73,6 +74,8 @@ public class RemotePlayMode {
 		
 		return false;
 	}
-	//add key
+
+
+	
 
 }
